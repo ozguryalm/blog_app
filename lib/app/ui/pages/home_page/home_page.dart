@@ -1,8 +1,8 @@
-import 'dart:ui';
-
-import 'package:blog/app/controllers/blog_controller.dart';
+import '../../../controllers/blog_controller.dart';
+import '../../../routes/app_routes.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
+import '../../../data/models/blog_model.dart';
 import '../../layouts/main/widgets/main_layout_view.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -59,8 +59,21 @@ class HomePage extends GetView<HomeController> {
                       )
                     : SliverGrid(
                         delegate: SliverChildBuilderDelegate((context, index) {
-                          return buildGridItem(index, context);
-                        }, childCount: blogController.blogs.value.data!.length),
+                          return buildGridItem(
+                              index,
+                              context,
+                              controller.blogController.categorizedBLogs.value.data !=
+                                      null
+                                  ? controller.blogController.categorizedBLogs
+                                      .value.data!
+                                  : blogController.blogs.value.data!);
+                        },
+                            childCount: controller.blogController
+                                        .categorizedBLogs.value.data !=
+                                    null
+                                ? controller.blogController.categorizedBLogs
+                                    .value.data!.length
+                                : blogController.blogs.value.data!.length),
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           mainAxisExtent: 31.50.h,
                           crossAxisCount: 2,
@@ -88,55 +101,57 @@ class HomePage extends GetView<HomeController> {
     }
   }
 
-  Material buildGridItem(int index, BuildContext context) {
-    return Material(
-      borderRadius: BorderRadius.circular(16),
-      elevation: 2,
-      child: Container(
-        child: Stack(
-          children: [
-            Column(
-              children: [
-                Expanded(
-                  flex: 6,
-                  child: ClipRRect(
-                    borderRadius:
-                        const BorderRadius.vertical(top: Radius.circular(16)),
-                    child: Image.network(
-                        blogController.blogs.value.data![index].image!,
-                        fit: BoxFit.cover),
+  buildGridItem(int index, BuildContext context, List<Datum> list) {
+    return InkWell(
+      onTap: () {
+        Get.toNamed(AppRoutes.BLOG_DETAIL,arguments: list[index] );
+      },
+      child: Material(
+        borderRadius: BorderRadius.circular(16),
+        elevation: 2,
+        child: Container(
+          child: Stack(
+            children: [
+              Column(
+                children: [
+                  Expanded(
+                    flex: 6,
+                    child: ClipRRect(
+                      borderRadius:
+                          const BorderRadius.vertical(top: Radius.circular(16)),
+                      child:
+                          Image.network(list[index].image!, fit: BoxFit.cover),
+                    ),
                   ),
-                ),
-                Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        blogController.blogs.value.data![index].title!,
-                        style: Theme.of(context).textTheme.titleSmall,
-                      ),
-                    ))
-              ],
-            ),
-            Align(
-                alignment: Alignment.topRight,
-                child: Obx(() {
-                  return blogController.blogs.value.data == null
-                      ? const Center()
-                      : IconButton(
-                          onPressed: () async {
-                            await controller.addFavorite(
-                                blogController.blogs.value.data![index].id!);
-                          },
-                          icon: Icon(Icons.favorite,
-                              color: setColor(
-                                  blogController.blogs.value.data![index].id)),
-                          iconSize: 27.sp,
-                        );
-                }))
-          ],
+                  Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          list[index].title!,
+                          style: Theme.of(context).textTheme.titleSmall,
+                        ),
+                      ))
+                ],
+              ),
+              Align(
+                  alignment: Alignment.topRight,
+                  child: Obx(() {
+                    return blogController.blogs.value.data == null
+                        ? const Center()
+                        : IconButton(
+                            onPressed: () async {
+                              await controller.addFavorite(list[index].id!);
+                            },
+                            icon: Icon(Icons.favorite,
+                                color: setColor(list[index].id)),
+                            iconSize: 27.sp,
+                          );
+                  }))
+            ],
+          ),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
         ),
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
       ),
     );
   }

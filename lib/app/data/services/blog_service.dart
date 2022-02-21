@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'package:blog/app/data/models/blog_model.dart';
-import 'package:blog/app/data/models/categories_model.dart';
-import 'package:blog/app/ui/global_widgets/toast_message.dart';
+import '../models/blog_model.dart';
+import '../models/categories_model.dart';
+import '../../ui/global_widgets/toast_message.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
@@ -12,7 +12,7 @@ class BlogService {
   BlogService() : super();
 
   Future<dynamic> getBlogs({String? categoryId}) async {
-    final String token = box.read("token");
+     String token = box.read("token");
     Map<String, String> headers = {
       'Authorization': token,
       'Content-Type': 'application/json',

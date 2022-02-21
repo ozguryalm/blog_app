@@ -1,4 +1,6 @@
-import '../bindings/profile_binding.dart';
+import '../bindings/blog_detail_binding.dart';
+import '../ui/pages/blog_detail_page/blog_detail_page.dart';
+      import '../bindings/profile_binding.dart';
 import '../ui/pages/profile_page/profile_page.dart';
       import '../bindings/favorites_binding.dart';
 import '../ui/pages/favorites_page/favorites_page.dart';
@@ -20,7 +22,7 @@ const _defaultTransition = Transition.cupertino;
 class AppPages {
   static final unknownRoutePage = GetPage(
     name: AppRoutes.UNKNOWN,
-    page: () => UnknownRoutePage(),
+    page: () => const UnknownRoutePage(),
     transition: _defaultTransition,
   );
 
@@ -40,7 +42,7 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.REGISTER,
-      page: () => RegisterPage(),
+      page: () =>const RegisterPage(),
       binding: RegisterBinding(),
       transition: _defaultTransition,
     ),
@@ -58,8 +60,14 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.PROFILE,
-      page: () => ProfilePage(),
+      page: () => const ProfilePage(),
       binding: ProfileBinding(),
+      transition: _defaultTransition,
+    ),
+    GetPage(
+      name: AppRoutes.BLOG_DETAIL,
+      page: () => BlogDetailPage(),
+      binding: BlogDetailBinding(),
       transition: _defaultTransition,
     ), 
 ];

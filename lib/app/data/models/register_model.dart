@@ -2,6 +2,8 @@
 //
 //     final registerModel = registerModelFromJson(jsonString);
 
+// ignore_for_file: prefer_if_null_operators
+
 import 'dart:convert';
 
 RegisterModel registerModelFromJson(String str) => RegisterModel.fromJson(json.decode(str));
@@ -18,7 +20,7 @@ class RegisterModel {
 
     List<ValidationError> ?validationErrors;
     bool? hasError;
-    dynamic ?message;
+    dynamic message;
     Data ?data;
 
     factory RegisterModel.fromJson(Map<String, dynamic> json) => RegisterModel(

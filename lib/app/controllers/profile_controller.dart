@@ -1,3 +1,10 @@
-
+import 'blog_controller.dart';
 import 'package:get/get.dart';
-class ProfileController extends GetxController {}
+import 'package:get_storage/get_storage.dart';
+
+class ProfileController extends GetxController {
+  final box = GetStorage();
+  BlogController blogController = Get.find<BlogController>();
+
+  
+}

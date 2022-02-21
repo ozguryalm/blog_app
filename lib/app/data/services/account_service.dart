@@ -1,5 +1,5 @@
-import 'package:blog/app/data/models/account_model.dart';
-import 'package:blog/app/ui/global_widgets/toast_message.dart';
+import '../models/account_model.dart';
+import '../../ui/global_widgets/toast_message.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;

@@ -2,6 +2,8 @@
 //
 //     final accountModel = accountModelFromJson(jsonString);
 
+// ignore_for_file: prefer_if_null_operators
+
 import 'dart:convert';
 
 AccountModel accountModelFromJson(String str) => AccountModel.fromJson(json.decode(str));
@@ -18,7 +20,7 @@ class AccountModel {
 
     List<dynamic>? validationErrors;
     bool? hasError;
-    dynamic ?message;
+    dynamic message;
     Data? data;
 
     factory AccountModel.fromJson(Map<String, dynamic> json) => AccountModel(
@@ -47,8 +49,8 @@ class Data {
 
     String? id;
     String? email;
-    dynamic? image;
-    dynamic? location;
+    dynamic image;
+    dynamic location;
     List<String>? favoriteBlogIds;
 
     factory Data.fromJson(Map<String, dynamic> json) => Data(
