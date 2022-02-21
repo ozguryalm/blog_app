@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 class AppRoutes {
   static const HOME = '/';
   static const UNKNOWN = '/404';
@@ -6,4 +8,5 @@ class AppRoutes {
   static const MAIN = '/main';
   static const FAVORITES = '/favorites';
   static const PROFILE = '/profile';
+  static const BLOG_DETAIL = '/blog-detail';
 }

@@ -1,14 +1,12 @@
-import 'package:blog/app/controllers/blog_controller.dart';
-import 'package:blog/app/controllers/main_controller.dart';
-import 'package:blog/app/data/models/blog_model.dart';
-import 'package:blog/app/data/models/categories_model.dart';
-import 'package:blog/app/data/services/blog_service.dart';
+import 'blog_controller.dart';
+import '../data/models/categories_model.dart';
+import '../data/services/blog_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   Rx<CategoriesModel> categories = CategoriesModel().obs;
-  
+  BlogController blogController = Get.find<BlogController>();
 
   getCategories() async {
     return await BlogService().getCategories().then((value) {
@@ -23,11 +21,12 @@ class HomeController extends GetxController {
   addFavorite(String blogId) async {
     await BlogService().addFavorite(blogId);
     await Get.find<BlogController>().getBadgesCount();
-    
+    blogController.filterFavorite();
   }
 
   @override
   void onInit() {
+    blogController.getBlogs();
     getCategories();
     super.onInit();
   }

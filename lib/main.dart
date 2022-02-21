@@ -1,4 +1,4 @@
-import 'package:blog/app/controllers/blog_controller.dart';
+import 'app/controllers/blog_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -21,6 +21,8 @@ void main() async {
 class MyApp extends StatelessWidget {
   final box = GetStorage();
 
+   MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     Get.put(BlogController());
@@ -31,8 +33,8 @@ class MyApp extends StatelessWidget {
         darkTheme: Themes().darkTheme,
         themeMode: ThemeMode.system,
         translations: Translation(),
-        locale: Locale('en'),
-        fallbackLocale: Locale('en'),
+        locale:const Locale('en'),
+        fallbackLocale:const Locale('en'),
         initialRoute:
             box.read("token") == null ? AppRoutes.LOGIN : AppRoutes.MAIN,
         unknownRoute: AppPages.unknownRoutePage,

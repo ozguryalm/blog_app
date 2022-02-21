@@ -2,6 +2,8 @@
 //
 //     final categoriesModel = categoriesModelFromJson(jsonString);
 
+// ignore_for_file: prefer_if_null_operators
+
 import 'dart:convert';
 
 CategoriesModel categoriesModelFromJson(String str) => CategoriesModel.fromJson(json.decode(str));
@@ -18,7 +20,7 @@ class CategoriesModel {
 
     List<dynamic> ?validationErrors;
     bool? hasError;
-    dynamic ?message;
+    dynamic message;
     List<Datum>? data;
 
     factory CategoriesModel.fromJson(Map<String, dynamic> json) => CategoriesModel(

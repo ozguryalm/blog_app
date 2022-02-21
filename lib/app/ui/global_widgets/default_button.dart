@@ -1,3 +1,5 @@
+// ignore_for_file: unrelated_type_equality_checks
+
 import 'package:blog/app/ui/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';

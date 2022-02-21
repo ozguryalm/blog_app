@@ -8,6 +8,8 @@ import 'package:sizer/sizer.dart';
 import '../../../controllers/register_controller.dart';
 
 class RegisterPage extends GetView<RegisterController> {
+  const RegisterPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MainLayoutView(
@@ -29,13 +31,13 @@ class RegisterPage extends GetView<RegisterController> {
                 style: Theme.of(context).textTheme.titleMedium,
                 cursorWidth: 1,
                 controller: controller.email_controller,
-                autofillHints: [AutofillHints.email],
+                autofillHints: const [AutofillHints.email],
                 decoration: InputDecoration(
                     labelText: email.tr,
                     prefixIcon: SizedBox(
                       height: 6.63.h,
                       child: Padding(
-                        padding: EdgeInsets.all(16),
+                        padding: const EdgeInsets.all(16),
                         child: Image.asset(
                           "assets/icons/mail.png",
                           fit: BoxFit.scaleDown,
@@ -52,7 +54,7 @@ class RegisterPage extends GetView<RegisterController> {
                   style: Theme.of(context).textTheme.titleMedium,
                   cursorWidth: 1,
                   controller: controller.password_controller,
-                  autofillHints: [AutofillHints.email],
+                  autofillHints: const [AutofillHints.email],
                   decoration: InputDecoration(
                       labelText: password.tr,
                       suffixIcon: IconButton(
@@ -71,7 +73,7 @@ class RegisterPage extends GetView<RegisterController> {
                       prefixIcon: SizedBox(
                         height: 6.63.h,
                         child: Padding(
-                            padding: EdgeInsets.all(16),
+                            padding: const EdgeInsets.all(16),
                             child: Image.asset(
                               "assets/icons/lock.png",
                             )),
@@ -87,7 +89,7 @@ class RegisterPage extends GetView<RegisterController> {
                   style: Theme.of(context).textTheme.titleMedium,
                   cursorWidth: 1,
                   controller: controller.password_retry_controller,
-                  autofillHints: [AutofillHints.email],
+                  autofillHints: const [AutofillHints.email],
                   decoration: InputDecoration(
                       labelText: repassword.tr,
                       suffixIcon: IconButton(
@@ -106,7 +108,7 @@ class RegisterPage extends GetView<RegisterController> {
                       prefixIcon: SizedBox(
                         height: 6.63.h,
                         child: Padding(
-                            padding: EdgeInsets.all(16),
+                            padding: const EdgeInsets.all(16),
                             child: Image.asset(
                               "assets/icons/lock.png",
                             )),
@@ -117,7 +119,7 @@ class RegisterPage extends GetView<RegisterController> {
               Obx(() {
                 return DefaultButton(
                   loadingWidget: controller.isloading.value
-                      ? CircularProgressIndicator(
+                      ? const CircularProgressIndicator(
                           color: Colors.grey,
                         )
                       : null,

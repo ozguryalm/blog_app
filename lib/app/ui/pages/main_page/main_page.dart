@@ -1,13 +1,12 @@
 import 'package:badges/badges.dart';
-import 'package:blog/app/controllers/blog_controller.dart';
-import 'package:blog/app/routes/app_routes.dart';
-import 'package:getxbottombar/getxbottombar.dart';
-
-import '../../../routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getxbottombar/getxbottombar.dart';
 
+import '../../../controllers/blog_controller.dart';
 import '../../../controllers/main_controller.dart';
+import '../../../routes/app_pages.dart';
+import '../../../routes/app_routes.dart';
 
 class MainPage extends GetView<MainController> {
    MainPage({Key? key}) : super(key: key);

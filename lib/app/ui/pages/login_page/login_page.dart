@@ -1,5 +1,5 @@
-import 'package:blog/app/routes/app_routes.dart';
-import 'package:blog/app/ui/global_widgets/default_button.dart';
+import '../../../routes/app_routes.dart';
+import '../../global_widgets/default_button.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../translation/texts.dart';
@@ -11,6 +11,8 @@ import 'package:sizer/sizer.dart';
 
 
 class LoginPage extends GetResponsiveView<LoginController> {
+   LoginPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MainLayoutView(

@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:blog/app/data/services/login_register_service.dart';
 import 'package:blog/app/routes/app_routes.dart';
 import 'package:blog/app/translation/texts.dart';

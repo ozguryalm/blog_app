@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:blog/app/routes/app_routes.dart';
 import 'package:blog/app/translation/texts.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +15,7 @@ class LoginController extends GetxController {
   RxBool passwordVisible = true.obs;
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
 
-  TextEditingController email_controller = TextEditingController();
+   TextEditingController email_controller = TextEditingController();
   TextEditingController password_controller = TextEditingController();
   void changePasswordVisible() {
     passwordVisible.value = !passwordVisible.value;
@@ -59,7 +61,7 @@ class LoginController extends GetxController {
       if (value.data != null) {
         box.write("token", "Bearer ${value.data!.token}");
         
-        Get.offAndToNamed(AppRoutes.HOME);
+        Get.offAndToNamed(AppRoutes.MAIN);
       }
       return value;
     });
