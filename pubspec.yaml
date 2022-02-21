@@ -1,0 +1,38 @@
+name: blog
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.16.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons:
+  get:
+  get_storage:
+  dartz:
+  lottie: 
+  sizer:
+  keyboard_dismisser: 
+  http: ^0.13.4
+  fluttertoast: ^8.0.8
+  getxbottombar: ^0.0.1
+  shimmer: ^2.0.0
+  badges: ^2.0.2
+dev_dependencies:
+  flutter_lints: ^1.0.0
+  build_runner: 
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/lotties/
+    - assets/icons/
+
