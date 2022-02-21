@@ -63,7 +63,7 @@ class RegisterController extends GetxController {
       if (value.hasError!) {
       } else {
         box.write("token", "Bearer ${value.data!.token}");
-        Get.offAllNamed(AppRoutes.HOME);
+        Get.offAllNamed(AppRoutes.MAIN);
       }
       return value;
     });
